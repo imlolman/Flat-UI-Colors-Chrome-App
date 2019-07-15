@@ -4,3 +4,5 @@ I have been using [https://flatuicolours.com](https://flatuicolors.com) since my
 
 This is an Awesome app with Animation and It is Very Fast and It has an Always on top Feature too.
 
+## Visit: [https://imlolman.github.io/Flat-UI-Colors-Chrome-App/](https://imlolman.github.io/Flat-UI-Colors-Chrome-App/) for More Info.
+
