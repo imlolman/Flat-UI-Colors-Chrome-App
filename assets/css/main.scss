@@ -1,0 +1,240 @@
+* {
+  transition: all 0.1s ease-in;
+}
+
+body {
+  font-family: roboto;
+  background: #3c40c6;
+  background-image: url('../imgs/bg.svg');
+  padding-top: 30px;
+  height: 100vh;
+  overflow-y: visible;
+}
+
+.topHeading {
+  color: #fff;
+  margin: 10px 0px 5px -10px;
+}
+
+.color-set-column {
+  padding: 5px;
+  cursor: pointer;
+  height: 120px;
+
+  .color-set {
+    background: #fff;
+    padding: 5px 5px 0px 5px;
+    border-radius: 4px;
+    height: 100%;
+
+    .show-color {
+      height: calc(100% - 20px);
+      background: #fff;
+      display: grid;
+      border-radius: 4px;
+      overflow: hidden;
+      grid-template-columns: calc(100% / 5) calc(100% / 5) calc(100% / 5) calc(100% / 5) calc(100% / 5);
+      grid-template-rows: calc(100% /4);
+
+      .color {
+        height: 100%;
+      }
+    }
+
+    .plate-name {
+      padding: 0px 0px;
+
+      .name {
+        font-size: 10px;
+      }
+
+      .emoji {
+        float: right;
+      }
+    }
+  }
+
+  &:active {
+    padding: 8px;
+  }
+
+}
+
+.row>.loading {
+  text-align: center;
+}
+
+.full-screen-selector {
+  position: fixed;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+
+  .color-box {
+    height: calc(100% - 30px);
+    display: grid;
+    grid-template-columns: calc(100% / 5) calc(100% / 5) calc(100% / 5) calc(100% / 5) calc(100% / 5);
+    grid-template-rows: calc(100% /4);
+
+    .color {
+      height: 100%;
+      cursor: pointer;
+
+      &:hover {
+        z-index: 2;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+      }
+
+      &:active {
+        z-index: 2;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  .copy-format {
+    margin: 0 auto;
+    font-size: 10px;
+  }
+}
+
+.title-area {
+  height: 30px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: #fff;
+  color: rgb(52, 73, 94);
+  -webkit-app-region: drag;
+  box-shadow: 2px 2px 20px #00000044;
+  z-index: 99999;
+  text-align: center;
+
+
+
+  .action {
+    .btn {
+      -webkit-app-region: no-drag;
+      background: #eee;
+      height: 30px;
+      width: 50px;
+      cursor: pointer;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      position: relative;
+      float: right;
+
+
+      &:hover {
+        background: #ddd;
+      }
+    }
+
+    .close {
+      &:hover {
+        background: red;
+        color: #fff;
+      }
+    }
+
+    .minimize {
+      font-size: 30px;
+      line-height: 30px;
+    }
+
+    .pin {
+      font-size: 15px;
+
+      &:active {
+        background: #ccc;
+      }
+    }
+
+    .resize {
+      font-size: 15px;
+    }
+
+    .move {
+      font-size: 15px;
+      line-height: 10px;
+      -webkit-app-region: drag;
+
+    }
+
+    .back {
+      float: left;
+      font-size: 15px;
+    }
+
+    .active {
+      background: #aaa;
+    }
+
+    .logo {
+      background: #fff;
+      float: left;
+
+      &:hover {
+        background: #fff;
+      }
+    }
+  }
+}
+
+.colorCopiedBox {
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+  top: 20px;
+  transform: translate(0px, 0px);
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: showBox 0.7s ease-in;
+  display: none;
+
+  .overlay {
+    width: 100vw;
+    padding: 10px;
+    background: #ffffff33;
+    transform: translate(0, calc(50vh - 40px));
+
+    p {
+      font-size: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 2px #00000066;
+      margin: 0px;
+      margin-bottom: 5px;
+    }
+
+    .colorCode {
+      color: #fff;
+      font-size: 15px;
+    }
+  }
+
+  @keyframes showBox {
+    0% {
+      opacity: 0
+    }
+
+    30% {
+      opacity: 100
+    }
+
+
+    70% {
+      opacity: 100
+    }
+
+    100% {
+      opacity: 0
+    }
+  }
+}

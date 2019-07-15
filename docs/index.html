@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#2c3e50">
+  <title>Flat UI Chrome App and Extension</title>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Roboto&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <span class="name">🎨 Flat UI Colors Tools</span>
+    </div>
+    <div class="sidebar-icon mobileOnly" onclick="$('.links').show()">
+      <img src="assets/imgs/nav-icon.png" alt="">
+    </div>
+
+    <div class="links">
+      <div class="mobileOnly"
+        onclick="$('.links').addClass('hidenav');setTimeout(()=>$('.links').removeClass('hidenav').hide(),200)"><img
+          src="assets/imgs/Group 1.png" alt=""></div>
+      <a href="https://imlolman.github.io/" target="_blank" class="item">Contact Developer</a>
+      <a href="http://imlolman.github.io/Flat-UI-Colors-Chrome-App" target="_blank" class="item">View Project On
+        Github</a>
+      <a href="#" onclick="scrollToit('#section4')" class="item">Download</a>
+    </div>
+  </nav>
+  <section class="dark" id="section1">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-6 photo-part col-lg-push-6">
+          <div class="content">
+            <img src="assets/imgs/img.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6 heading-part col-lg-pull-6">
+          <div class="content">
+            <h1>Care About your Code,<br> not the Colors 🤟</h1>
+            <p>I've Made an Awesome tools for Maintaining Your Colors<br> and Made them Look Beautiful.</p>
+          </div>
+        </div>
+      </div>
+      <a onclick="scrollToit('#section2')" class="scrollBlock"><img src="assets/imgs/circled-down-light.png"></a>
+    </div>
+  </section>
+  <section class="light" id="section2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 photo-part">
+          <div class="content">
+            <img src="assets/imgs/img2.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6 heading-part">
+          <div class="content">
+            <h1>Bunch of Paletts to<br> Choose From 😍</h1>
+            <p>Multiple Colour Palets based of Country to Choose, Make your design Look Smoother.</p>
+          </div>
+        </div>
+      </div>
+      <a onclick="scrollToit('#section3')" class="scrollBlock"><img src="assets/imgs/circled-down-dark.png"></a>
+    </div>
+  </section>
+  <section class="dark" id="section3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 photo-part col-lg-push-6">
+          <div class="content">
+            <img src="assets/imgs/img3.png" alt="">
+          </div>
+        </div>
+
+        <div class="col-md-6 heading-part col-lg-pull-6">
+          <div class="content">
+            <h1>One Click Copy and Stays <br>Always on Top with<br> Pin Feature 📌</h1>
+            <p>You can Make it stay Always on Top Using the Brand New Pin Tool.</p>
+          </div>
+        </div>
+      </div>
+      <a onclick="scrollToit('#section4')" class="scrollBlock"><img src="assets/imgs/circled-down-light.png"></a>
+    </div>
+  </section>
+  <section class="light download-part" id="section4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 photo-part">
+          <div class="content">
+            <h1>Download Chrome Extension</h1>
+            <a href="https://chrome.google.com/webstore/detail/gdklgeadlcgenpmmmfgfhfglpjaeplha/" target="_blank"><img
+                class="download-image" src="assets/imgs/available.png" alt=""></a>
+          </div>
+        </div>
+        <div class="col-md-6 heading-part">
+          <div class="content">
+            <h1>Download Chrome App Now!</h1>
+            <a href="download.html"> <button class="btn"> <img src="assets/imgs/download.png" class="logo"> Download
+              </button></a>
+          </div>
+        </div>
+      </div>
+  </section>
+  <a onclick="scrollToit('#section1')" class="scrollTopBlock"><img src="assets/imgs/arrow.png"></a>
+</body>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/sketch.js"></script>
+
+</html>

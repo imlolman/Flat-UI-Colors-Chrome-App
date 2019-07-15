@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#db5945">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flat UI Colours</title>
+  <link rel="stylesheet" href="assets/css/grid.css">
+  <link rel="stylesheet" href="assets/css/tipr.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body>
+  <div class='title-area'>
+    <div class="action">
+      <div class="btn close" id="close" data-tip="Close" data-mode="below">x</div>
+      <div class="btn resize" id="resize" data-tip="Resize to Smallest" res="sm" data-mode="below"><b>◼</b>
+      </div>
+      <div class="btn minimize" id="minimize" data-tip="Minimize" data-mode="below"><b>-</b></div>
+      <div class="btn pin" id="pin" data-tip="Pin (Always on top)" data-mode="below"><b>📌</b></div>
+      <div class="btn move" id="move" data-tip="Move" data-mode="below"><b><svg aria-hidden="true" height="15px"
+            focusable="false" data-prefix="fas" data-icon="arrows-alt" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512" class="svg-inline--fa fa-arrows-alt fa-w-16 fa-2x">
+            <path fill="currentColor"
+              d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"
+              class=""></path>
+          </svg></b></div>
+      <div class="onlyOnChromeApp" data-tip="Only Available on Chrome App" data-mode="below"> <a
+          href="http://imlolman.github.io/Flat-UI-Colors-Chrome-App" target="_blank">Download Chrome App</a></div>
+
+      <div class="btn back" id="back" data-tip="Home" data-mode="below">🏠</div>
+      <div class="btn logo" data-tip="Made by imLolman" data-mode="below"> <img src="img/logo16.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="container" id="home">
+    <h4 class="topHeading">Flat UI Colors </h4>
+    <div class="row" id="loadColoursHere">
+      <h2 class="loading">💐💐 Please Wait while we are Loading.. 💐💐</h2>
+    </div>
+  </div>
+  <div class="full-screen-selector" id="set" style="display: none">
+    <div class="color-box">
+    </div>
+  </div>
+  <div class="colorCopiedBox">
+    <div class="overlay">
+      <p id="randomText">Copied!</p>
+      <span class="colorCode">#2980b9</span>
+    </div>
+  </div>
+</body>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/tipr.js"></script>
+<script src="assets/js/sketch.js"></script>
+
+</option>

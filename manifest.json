@@ -1,0 +1,23 @@
+{
+  "version": "1.2",
+  "name": "Flat UI Colors Palette App",
+  "short_name": "Flat UI Colors Palette",
+  "description": "Flat UI Colors Palette (Copy in a Click) Chrome App, Works Offline and Always On Top is Also Available.",
+  "icons": {
+    "16": "img/logo16.png",
+    "48": "img/logo48.png",
+    "128": "img/logo128.png"
+  },
+  "permissions": ["alwaysOnTopWindows",
+    "https://www.google-analytics.com/*",
+    "storage"
+  ],
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "minimum_chrome_version": "28",
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com/ga.js; object-src 'self'",
+  "manifest_version": 2
+}
