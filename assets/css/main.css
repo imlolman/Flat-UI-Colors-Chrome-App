@@ -23,14 +23,18 @@ body {
   height: 120px;
 }
 
-.color-set-column .color-set {
+.color-set-column:active {
+  padding: 8px;
+}
+
+.color-set {
   background: #fff;
   padding: 5px 5px 0px 5px;
   border-radius: 4px;
   height: 100%;
 }
 
-.color-set-column .color-set .show-color {
+.color-set .show-color {
   height: calc(100% - 20px);
   background: #fff;
   display: -ms-grid;
@@ -43,24 +47,20 @@ body {
       grid-template-rows: calc(100% /4);
 }
 
-.color-set-column .color-set .show-color .color {
+.color-set .show-color .color {
   height: 100%;
 }
 
-.color-set-column .color-set .plate-name {
+.color-set .plate-name {
   padding: 0px 0px;
 }
 
-.color-set-column .color-set .plate-name .name {
+.color-set .plate-name .name {
   font-size: 10px;
 }
 
-.color-set-column .color-set .plate-name .emoji {
+.color-set .plate-name .emoji {
   float: right;
-}
-
-.color-set-column:active {
-  padding: 8px;
 }
 
 .row > .loading {
@@ -138,6 +138,7 @@ body {
   font-size: 20px;
   position: relative;
   float: right;
+  font-size: 15px;
 }
 
 .title-area .action .btn:hover {
@@ -150,31 +151,19 @@ body {
 }
 
 .title-area .action .minimize {
-  font-size: 30px;
   line-height: 30px;
-}
-
-.title-area .action .pin {
-  font-size: 15px;
 }
 
 .title-area .action .pin:active {
   background: #ccc;
 }
 
-.title-area .action .resize {
-  font-size: 15px;
-}
-
 .title-area .action .move {
-  font-size: 15px;
-  line-height: 10px;
   -webkit-app-region: drag;
 }
 
 .title-area .action .back {
   float: left;
-  font-size: 15px;
 }
 
 .title-area .action .active {
@@ -208,7 +197,6 @@ body {
   opacity: 0;
   -webkit-animation: showBox 0.7s ease-in;
           animation: showBox 0.7s ease-in;
-  display: none;
 }
 
 .colorCopiedBox .overlay {

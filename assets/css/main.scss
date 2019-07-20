@@ -21,43 +21,42 @@ body {
   cursor: pointer;
   height: 120px;
 
-  .color-set {
-    background: #fff;
-    padding: 5px 5px 0px 5px;
-    border-radius: 4px;
-    height: 100%;
-
-    .show-color {
-      height: calc(100% - 20px);
-      background: #fff;
-      display: grid;
-      border-radius: 4px;
-      overflow: hidden;
-      grid-template-columns: calc(100% / 5) calc(100% / 5) calc(100% / 5) calc(100% / 5) calc(100% / 5);
-      grid-template-rows: calc(100% /4);
-
-      .color {
-        height: 100%;
-      }
-    }
-
-    .plate-name {
-      padding: 0px 0px;
-
-      .name {
-        font-size: 10px;
-      }
-
-      .emoji {
-        float: right;
-      }
-    }
-  }
-
   &:active {
     padding: 8px;
   }
+}
 
+.color-set {
+  background: #fff;
+  padding: 5px 5px 0px 5px;
+  border-radius: 4px;
+  height: 100%;
+
+  .show-color {
+    height: calc(100% - 20px);
+    background: #fff;
+    display: grid;
+    border-radius: 4px;
+    overflow: hidden;
+    grid-template-columns: calc(100% / 5) calc(100% / 5) calc(100% / 5) calc(100% / 5) calc(100% / 5);
+    grid-template-rows: calc(100% /4);
+
+    .color {
+      height: 100%;
+    }
+  }
+
+  .plate-name {
+    padding: 0px 0px;
+
+    .name {
+      font-size: 10px;
+    }
+
+    .emoji {
+      float: right;
+    }
+  }
 }
 
 .row>.loading {
@@ -111,8 +110,6 @@ body {
   z-index: 99999;
   text-align: center;
 
-
-
   .action {
     .btn {
       -webkit-app-region: no-drag;
@@ -126,6 +123,7 @@ body {
       font-size: 20px;
       position: relative;
       float: right;
+      font-size: 15px;
 
 
       &:hover {
@@ -141,32 +139,23 @@ body {
     }
 
     .minimize {
-      font-size: 30px;
       line-height: 30px;
     }
 
     .pin {
-      font-size: 15px;
 
       &:active {
         background: #ccc;
       }
     }
 
-    .resize {
-      font-size: 15px;
-    }
-
     .move {
-      font-size: 15px;
-      line-height: 10px;
       -webkit-app-region: drag;
 
     }
 
     .back {
       float: left;
-      font-size: 15px;
     }
 
     .active {
@@ -197,7 +186,6 @@ body {
   text-transform: uppercase;
   opacity: 0;
   animation: showBox 0.7s ease-in;
-  display: none;
 
   .overlay {
     width: 100vw;
