@@ -329,6 +329,8 @@ body {
     float: right;
     margin: 0px 10px;
     color: #f5f6fa;
+    outline: 0;
+    background: #00a8ff;
 
     &.save {
       background: #00a8ff;
@@ -383,10 +385,61 @@ body {
   cursor: move;
 }
 
+.edit-buttons button {
+  height: calc(50% - 8px);
+  margin: 4px;
+  width: calc(50% - 8px);
+  background: #8c7ae6;
+  outline: none;
+  color: #fff;
+  border: 0px;
+  border-radius: 4px;
+
+  &.loadDefault {
+    background: #e84118;
+  }
+
+  &.donate {
+    background: #00a8ff;
+  }
+}
 
 
+.importExport {
+  position: fixed;
+  top: 0;
+  background: #000000cc;
+  z-index: 21;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  align-content: center;
+  align-items: center;
+  padding: 20px;
 
+  h2 {
+    color: #fff;
+  }
 
+  &.export {
+    .import {
+      display: none;
+    }
+  }
+
+  &.import {
+    .export {
+      display: none;
+    }
+  }
+
+  textarea {
+    height: 200px;
+    border-radius: 4px;
+    outline: 0;
+    width: 100%;
+  }
+}
 
 
 // * Key Frames

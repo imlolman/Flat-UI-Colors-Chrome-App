@@ -138,6 +138,7 @@ let calculateColors = (m) => {
 let showCopied = (color) => {
   let texts = ['Got it!', 'It\'ll Rock!', 'Copied!', 'Paste Me!', 'Right One!', 'Will Do!']
   $('#randomText').html(texts[Math.floor(Math.random() * texts.length)])
+  $('.colorCode').html(color)
   $('.colorCopiedBox').css('background-color', color)
   $('.colorCopiedBox').show()
   setTimeout(() => $('.colorCopiedBox').hide(), 1000);
@@ -260,7 +261,7 @@ let removeAllandReload = () => {
 }
 
 let addAddNewPalletOption = () => {
-  $('#loadColorsHere').prepend('<div class="col-xs-12" id="newColorSet" style="padding:0"><div class="col-xs-6 col-sm-4 col-md-4" style="height:30vw;padding:5px"><div class="addNewPalette">+</div></div></div>')
+  $('#loadColorsHere').prepend('<div class="col-xs-12" id="newColorSet" style="padding:0"><div class="col-xs-6 col-sm-4 col-md-4" style="height:30vw;padding:5px"><div class="addNewPalette">+</div></div><div class="col-xs-6 col-sm-4 col-md-4 edit-buttons" style="height:30vw;padding:5px"><button class="col-xs-6 export">Export</button><button class="col-xs-6 import">Import</button><button class="col-xs-6 loadDefault">Load Default</button><button class="col-xs-6 donate">Donate</button></div></div>')
 }
 
 let bindEditEvents = () => {
@@ -271,6 +272,68 @@ let bindEditEvents = () => {
   document.querySelectorAll('#palette').forEach(ele => {
     ele.addEventListener('click', openEditDialougBox)
   })
+  $('.edit-buttons .export').on('click', () => {
+    $('.importExport').removeClass('import').addClass('export')
+    makeExportBoxVisible()
+    loadExportData()
+  })
+  $('.edit-buttons .import').on('click', () => {
+    $('.importExport').removeClass('export').addClass('import')
+    makeExportBoxVisible()
+    $('.importExport textarea').val('')
+  })
+  $('.edit-buttons .loadDefault').on('click', () => {
+    fetch('colors_data.json').then(res => res.json()).then(data => {
+      chrome.storage.local.set({
+        colors: data
+      });
+      setEditModeOff()
+      removeAllandReload()
+    })
+  })
+  $('.edit-buttons .donate').on('click', () => {
+    window.open('https://imlolman.github.io/donate')
+  })
+  $('.importExport .cancel').on('click', makeExportBoxInvisible)
+  $('.importExport .copy').on('click', () => {
+    copyToClipboard($('.importExport textarea').val())
+    makeExportBoxInvisible()
+  })
+  $('.importExport .load').on('click', () => {
+    try {
+      data = JSON.parse(decodeURIComponent(escape(atob($('.importExport textarea').val()))))
+      chrome.storage.local.set({
+        colors: data
+      });
+      makeExportBoxInvisible()
+      setEditModeOff()
+      removeAllandReload()
+    } catch {
+      console.log('Error Importing, Try Again')
+    }
+
+  })
+
+}
+
+let loadExportData = () => {
+  chrome.storage.local.get('colors', function (result) {
+    str = JSON.stringify(result.colors)
+    encoded = btoa(unescape(encodeURIComponent(str)))
+    $('.importExport textarea').val(encoded)
+  })
+}
+
+let makeExportBoxVisible = () => {
+  $('.importExport').removeClass('blowDownModalBG').addClass('blowUpModalBG')
+  $('.importExport .topBox').removeClass('blowDownModal').addClass('blowUpModal')
+  $('.importExport').show()
+}
+
+let makeExportBoxInvisible = () => {
+  $('.importExport').removeClass('blowUpModalBG').addClass('blowDownModalBG')
+  $('.importExport .topBox').removeClass('blowUpModal').addClass('blowDownModal')
+  setTimeout(() => $('.importExport').hide(), 500)
 }
 
 let createNewPalette = () => {
