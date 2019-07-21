@@ -18,7 +18,7 @@
   <div class='title-area'>
     <div class="action">
       <div class="btn close" id="close" data-tip="Close" data-mode="below"><i class="fas fa-times"></i></div>
-      <div class="btn resize" id="resize" data-tip="Resize to Smallest" res="sm" data-mode="below"><i class="far fa-window-maximize"></i></div>
+      <div class="btn edit" id="edit" data-tip="Edit palette" data-mode="below"><i class="fas fa-edit"></i></div>
       <div class="btn minimize" id="minimize" data-tip="Minimize" data-mode="below"><i class="far fa-window-minimize"></i></div>
       <div class="btn pin" id="pin" data-tip="Pin (Always on top)" data-mode="below"><i class="fas fa-thumbtack"></i></div>
       <div class="btn move" id="move" data-tip="Move" data-mode="below"><i class="fas fa-arrows-alt"></i></div>
@@ -29,7 +29,7 @@
   </div>
   <div class="container" id="home">
     <h4 class="topHeading">Flat UI Colors </h4>
-    <div class="row" id="loadColoursHere">
+    <div class="row" id="loadColorsHere">
       <h2 class="loading">💐💐 Please Wait while we are Loading.. 💐💐</h2>
     </div>
   </div>
@@ -43,13 +43,72 @@
       <span class="colorCode">#2980b9</span>
     </div>
   </div>
-</body>
+  <div class="editColorModal blowUpModalBG" style="display: none">
+    <div class="color-set blowUpModal">
+      <div class="nameArea"><input type="text" class="name" id="name" placeholder="palette Name" value="Flat UI Color Plate"></div>
+      <div class="show-color">
+        <div class="color" style="background: rgb(26, 188, 156)"></div>
+        <div class="color" style="background: rgb(46, 204, 113)"></div>
+        <div class="color" style="background: rgb(52, 152, 219)"></div>
+        <div class="color" style="background: rgb(155, 89, 182)"></div>
+        <div class="color" style="background: rgb(52, 73, 94)"></div>
+        <div class="color" style="background: rgb(22, 160, 133)"></div>
+        <div class="color" style="background: rgb(39, 174, 96)"></div>
+        <div class="color" style="background: rgb(41, 128, 185)"></div>
+        <div class="color" style="background: rgb(142, 68, 173)"></div>
+        <div class="color" style="background: rgb(44, 62, 80)"></div>
+        <div class="color" style="background: rgb(241, 196, 15)"></div>
+        <div class="color" style="background: rgb(230, 126, 34)"></div>
+        <div class="color" style="background: rgb(231, 76, 60)"></div>
+        <div class="color" style="background: rgb(236, 240, 241)"></div>
+        <div class="color" style="background: rgb(149, 165, 166)"></div>
+        <div class="color" style="background: rgb(243, 156, 18)"></div>
+        <div class="color" style="background: rgb(211, 84, 0)"></div>
+        <div class="color" style="background: rgb(192, 57, 43)"></div>
+        <div class="color" style="background: rgb(189, 195, 199)"></div>
+        <div class="color" style="background: rgb(127, 140, 141)"></div>
+      </div>
 
+      <div class="button-set">
+        <button class="save">Save</button>
+        <button class="cancel">Cancel</button>
+        <button class="delete">Delete</button>
+      </div>
+    </div>
+  </div>
+  <div class="editColorCode blowUpModalBG" style="display: none">
+    <div class="color-set blowUpModal">
+      <div class="values">
+        <div style="float:left">
+          <label>Hex:</label>
+          #<input type="text" value="12cbc4" size="5" id="h" maxlength=7 placeHolder="Hex Value of Color">&emsp;
+        </div>
+        <div style="display: inline-block;">
+          &emsp;<input id="cp" type="color">
+        </div>
+        <div style="float: right;">
+          <label>RGB:</label>
+          rgb(<input type="text" value="" size=1 maxlength=3 placeHolder="r" id="r">, <input type="text" value="" id="g" maxlength=3 size=1 placeHolder="g">, <input maxlength=3 id="b" type="text" value="" size=1 placeHolder="b">)
+        </div>
+
+      </div>
+      <div class="preview" style="background:rgb(18, 203, 196)">
+
+      </div>
+      <div class="button-set">
+        <button class="save">Save</button>
+        <button class="cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</body>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/tipr.js"></script>
 <script src="assets/js/helperFunction.js"></script>
 <script src="assets/js/sketch.js"></script>
 <script src="assets/js/google-analytics-bundle.js"></script>
 <script src="assets/js/ga.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
 
 </option>

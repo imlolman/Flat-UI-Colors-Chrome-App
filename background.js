@@ -9,8 +9,8 @@ chrome.app.runtime.onLaunched.addListener(function () {
     innerBounds: {
       width: 400,
       height: 700,
-      minWidth: 349,
-      minHeight: 200
+      minWidth: 400,
+      minHeight: 250
     },
     alwaysOnTop: false,
     'frame': 'none' // It will be a rectangle filled with your HTML

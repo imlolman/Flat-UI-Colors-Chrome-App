@@ -10,7 +10,8 @@
   },
   "permissions": ["alwaysOnTopWindows",
     "https://www.google-analytics.com/*",
-    "storage"
+    "storage",
+    "syncFileSystem"
   ],
   "app": {
     "background": {

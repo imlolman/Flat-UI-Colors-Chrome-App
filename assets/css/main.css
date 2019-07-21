@@ -220,6 +220,205 @@ body {
   font-size: 15px;
 }
 
+.addNewPalette {
+  border: 2px dashed #fff;
+  border-radius: 4px;
+  color: #fff;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 900;
+  font-size: 50px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.addNewPalette:hover {
+  background: #ffffff55;
+}
+
+.editColorModal {
+  position: fixed;
+  top: 0;
+  background: #000000cc;
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+.editColorModal .color-set {
+  height: 60vw;
+}
+
+.editColorModal .color-set .show-color {
+  cursor: pointer;
+}
+
+.editColorModal .color-set .nameArea {
+  padding: 0px 0px 5px 0px;
+}
+
+.editColorModal .color-set .nameArea .name {
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  padding: 2px;
+  outline: none;
+}
+
+.editColorModal .color-set .color:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.editColorModal .color-set .show-color {
+  height: calc(100% - 35px);
+}
+
+.editColorCode {
+  position: fixed;
+  top: 0;
+  background: #000000cc;
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
+.editColorCode .color-set {
+  height: 60vw;
+}
+
+.editColorCode .values {
+  padding-bottom: 2px;
+}
+
+.editColorCode .values label {
+  color: #4834d4;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.editColorCode .values input[type="text"] {
+  outline: 0;
+  background: #fff;
+  border: 0px;
+  text-align: right;
+  border-bottom: 2px solid #fff;
+}
+
+.editColorCode .values input[type="text"]:focus {
+  border-bottom: 2px solid #4834d4;
+}
+
+.editColorCode .values input[type="text"]::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.editColorCode .values input[type="text"]:-ms-input-placeholder {
+  text-align: center;
+}
+
+.editColorCode .values input[type="text"]::-ms-input-placeholder {
+  text-align: center;
+}
+
+.editColorCode .values input[type="text"]::placeholder {
+  text-align: center;
+}
+
+.editColorCode .preview {
+  width: 100%;
+  height: 50vw;
+  margin-bottom: 5px;
+}
+
+.button-set {
+  padding-top: 20px;
+}
+
+.button-set button {
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 2px;
+  border: 0px;
+  float: right;
+  margin: 0px 10px;
+  color: #f5f6fa;
+}
+
+.button-set button.save {
+  background: #00a8ff;
+}
+
+.button-set button.save:hover {
+  background: #0097e6;
+}
+
+.button-set button.cancel {
+  background: #7f8fa6;
+}
+
+.button-set button.cancel:hover {
+  background: #718093;
+}
+
+.button-set button.delete {
+  background: #e84118;
+}
+
+.button-set button.delete:hover {
+  background: #c23616;
+}
+
+.blowUpModal {
+  -webkit-animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.blowUpModalBG {
+  -webkit-animation: blowUpModalBG 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: blowUpModalBG 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.blowDownModal {
+  -webkit-animation: blowDownModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: blowDownModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.blowDownModalBG {
+  -webkit-animation: blowDownModalBG 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          animation: blowDownModalBG 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.color-set-column {
+  -webkit-transition: none;
+  transition: none;
+}
+
+.plate-name {
+  cursor: move;
+}
+
 @-webkit-keyframes showBox {
   0% {
     opacity: 0;
@@ -247,6 +446,86 @@ body {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes blowUpModal {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes blowUpModal {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes blowDownModal {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes blowDownModal {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@-webkit-keyframes blowUpModalBG {
+  0% {
+    background: #00000000;
+  }
+  100% {
+    background: #000000cc;
+  }
+}
+
+@keyframes blowUpModalBG {
+  0% {
+    background: #00000000;
+  }
+  100% {
+    background: #000000cc;
+  }
+}
+
+@-webkit-keyframes blowDownModalBG {
+  0% {
+    background: #000000cc;
+  }
+  100% {
+    background: #00000000;
+  }
+}
+
+@keyframes blowDownModalBG {
+  0% {
+    background: #000000cc;
+  }
+  100% {
+    background: #00000000;
   }
 }
 /*# sourceMappingURL=main.css.map */

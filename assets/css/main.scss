@@ -206,23 +206,246 @@ body {
       font-size: 15px;
     }
   }
+}
 
-  @keyframes showBox {
-    0% {
-      opacity: 0
+
+.addNewPalette {
+  border: 2px dashed #fff;
+  border-radius: 4px;
+  color: #fff;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 50px;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: #ffffff55;
+  }
+}
+
+.editColorModal {
+  position: fixed;
+  top: 0;
+  background: #000000cc;
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  align-content: center;
+  align-items: center;
+  padding: 20px;
+
+  .color-set {
+    height: 60vw;
+
+    .show-color {
+      cursor: pointer;
     }
 
-    30% {
-      opacity: 100
+    .nameArea {
+      padding: 0px 0px 5px 0px;
+
+      .name {
+        border-radius: 4px;
+        border: 1px solid #aaa;
+        padding: 2px;
+        outline: none;
+      }
+    }
+
+    .color {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .show-color {
+      height: calc(100% - 35px);
+    }
+  }
+}
+
+.editColorCode {
+  position: fixed;
+  top: 0;
+  background: #000000cc;
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  align-content: center;
+  align-items: center;
+  padding: 20px;
+
+  .color-set {
+    height: 60vw;
+  }
+
+  .values {
+    padding-bottom: 2px;
+
+    label {
+      color: #4834d4;
+      font-weight: 500;
+      font-size: 15px;
+
+    }
+
+    input[type="text"] {
+      outline: 0;
+      background: #fff;
+      border: 0px;
+      text-align: right;
+      border-bottom: 2px solid #fff;
+
+      &:focus {
+        border-bottom: 2px solid #4834d4;
+      }
+
+      &::placeholder {
+        text-align: center;
+      }
+    }
+  }
+
+  .preview {
+    width: 100%;
+    height: 50vw;
+    margin-bottom: 5px;
+  }
+}
+
+.button-set {
+  padding-top: 20px;
+
+  button {
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 2px;
+    border: 0px;
+    float: right;
+    margin: 0px 10px;
+    color: #f5f6fa;
+
+    &.save {
+      background: #00a8ff;
+
+      &:hover {
+        background: #0097e6;
+      }
     }
 
 
-    70% {
-      opacity: 100
+    &.cancel {
+      background: #7f8fa6;
+
+      &:hover {
+        background: #718093;
+      }
     }
 
-    100% {
-      opacity: 0
+
+    &.delete {
+      background: #e84118;
+
+      &:hover {
+        background: #c23616;
+      }
     }
+  }
+}
+
+.blowUpModal {
+  animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.blowUpModalBG {
+  animation: blowUpModalBG .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.blowDownModal {
+  animation: blowDownModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.blowDownModalBG {
+  animation: blowDownModalBG .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+
+.color-set-column {
+  transition: none;
+}
+
+.plate-name {
+  cursor: move;
+}
+
+
+
+
+
+
+
+// * Key Frames
+
+@keyframes showBox {
+  0% {
+    opacity: 0
+  }
+
+  30% {
+    opacity: 100
+  }
+
+
+  70% {
+    opacity: 100
+  }
+
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes blowUpModal {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes blowDownModal {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes blowUpModalBG {
+  0% {
+    background: #00000000;
+  }
+
+  100% {
+    background: #000000cc;
+  }
+}
+
+@keyframes blowDownModalBG {
+  0% {
+    background: #000000cc;
+  }
+
+  100% {
+    background: #00000000;
   }
 }
