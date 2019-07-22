@@ -105,6 +105,7 @@
   margin-right: -24px;
   min-height: 43px;
   background-color: #fff;
+  box-shadow: 0px -2px 2px #eee;
 }
 
 .alertify .ajs-footer .ajs-buttons.ajs-primary {
@@ -113,6 +114,10 @@
 
 .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
   margin: 4px;
+  color: #fff;
+  border: 0px;
+  border-radius: 4px;
+  outline: none;
 }
 
 .alertify .ajs-footer .ajs-buttons.ajs-auxiliary {
@@ -256,6 +261,7 @@
 
 .alertify.ajs-movable:not(.ajs-maximized) .ajs-header {
   cursor: move;
+  box-shadow: 0px 2px 2px #eee;
 }
 
 .alertify.ajs-modeless .ajs-dimmer,
@@ -1123,4 +1129,25 @@
 
 .alertify-notifier.ajs-center.ajs-bottom .ajs-message.ajs-visible {
   bottom: 0;
+}
+
+button.ajs-button.ajs-ok {
+  background: rgba(91, 189, 114, 0.95);
+}
+
+
+button.ajs-button.ajs-cancel {
+  background: rgba(217, 92, 92, 0.95);
+}
+
+
+.alertify-notifier.ajs-right .ajs-message.ajs-visible {
+  font-size: large;
+  border: 2px solid #fff;
+  padding: 10px;
+  color: #fff;
+  right: 160px;
+  border-radius: 4px;
+  width: 150px;
+  top: 20px;
 }

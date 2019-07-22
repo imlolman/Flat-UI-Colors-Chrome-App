@@ -59,9 +59,18 @@ body {
   }
 }
 
-.row>.loading {
-  text-align: center;
+.row {
+  .loading {
+    color: #fff;
+    text-align: center;
+
+    .reset {
+      color: #000;
+    }
+  }
+
 }
+
 
 .full-screen-selector {
   position: fixed;
@@ -285,7 +294,8 @@ body {
   }
 
   .values {
-    padding-bottom: 2px;
+    padding-bottom: 3px;
+    padding-top: 2px;
 
     label {
       color: #4834d4;
@@ -327,7 +337,7 @@ body {
     border-radius: 2px;
     border: 0px;
     float: right;
-    margin: 0px 10px;
+    margin: 5px 10px;
     color: #f5f6fa;
     outline: 0;
     background: #00a8ff;
@@ -347,6 +357,20 @@ body {
       &:hover {
         background: #718093;
       }
+    }
+
+
+    &.export {
+      background: #8c7ae6;
+    }
+
+
+    &.import {
+      background: #8c7ae6;
+    }
+
+    &.loadPalette {
+      background: #8c7ae6;
     }
 
 
@@ -395,7 +419,7 @@ body {
   border: 0px;
   border-radius: 4px;
 
-  &.loadDefault {
+  &.reset {
     background: #e84118;
   }
 
@@ -425,10 +449,28 @@ body {
     .import {
       display: none;
     }
+
+    .loadPalette {
+      display: none;
+    }
   }
 
   &.import {
     .export {
+      display: none;
+    }
+
+    .loadPalette {
+      display: none;
+    }
+  }
+
+  &.loadPalette {
+    .loadPalette {
+      display: inline-block;
+    }
+
+    button.import {
       display: none;
     }
   }
@@ -439,17 +481,6 @@ body {
     outline: 0;
     width: 100%;
   }
-}
-
-.alertify-notifier.ajs-right .ajs-message.ajs-visible {
-  font-size: large;
-  border: 2px solid #fff;
-  padding: 10px;
-  color: #fff;
-  right: 160px;
-  border-radius: 4px;
-  width: 150px;
-  top: 20px;
 }
 
 

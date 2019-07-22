@@ -66,11 +66,49 @@ let setColorBoxListeners = () => {
 
   $('.editColorCode .save').on('click', saveColorFromEditColorCode)
   $('.editColorModal .save').on('click', saveColorFromEditColorModal)
+  $('.editColorModal .import').on('click', importAPalette)
+  $('.editColorModal .export').on('click', exportAPalette)
   $('.editColorModal .delete').on('click', deletePaletteFromEditColorModal)
+  $('.importExport .loadPalette').on('click', loadPaletteFromImport)
+}
+
+
+let loadPaletteFromImport = () => {
+  try {
+    data = JSON.parse(decodeURIComponent(escape(atob($('.importExport textarea').val()))))
+    $('.editColorModal .name').val(data.name)
+    window.colors[$('.editColorModal').attr('paletteid')].emoji = data.emoji
+    $('.editColorModal .color').each((i, s) => {
+      $(s).css('background-color', data.cols[i])
+    })
+    makeExportBoxInvisible()
+    alertify.success('🤟 Imported!');
+  } catch {
+    alertify.error('😒 Importing Error, Try Again!');
+  }
+}
+let importAPalette = () => {
+  makeExportBoxVisible('loadPalette')
+  $('.importExport textarea').val('')
+}
+
+let exportAPalette = () => {
+  makeExportBoxVisible('export')
+  toExport = {
+    name: $('.editColorModal .name').val(),
+    emoji: window.colors[$('.editColorModal').attr('paletteid')].emoji,
+    cols: []
+  }
+  $('.editColorModal .color').each((i, s) => {
+    toExport.cols.push($(s).css('background-color'))
+  })
+  str = JSON.stringify(toExport)
+  encoded = btoa(unescape(encodeURIComponent(str)))
+  $('.importExport textarea').val(encoded)
 }
 
 let deletePaletteFromEditColorModal = () => {
-  alertify.confirm('😲 Confirm Delete', 'This process is Irreversible which means you will not be able to get this Palette Back in Future, Are You Suer Want to Continue.', function () {
+  alertify.confirm('😲 Confirm Delete?', 'This process is Irreversible which means you will not be able to get this Palette Back in Future, Are You Suer Want to Continue.', function () {
     window.colors[$('.editColorModal').attr('paletteid')] = null
     $('.color-set-column[paletteid="' + $('.editColorModal').attr('paletteid') + '"]').remove()
     $('.editColorModal').removeClass('blowUpModalBG').addClass('blowDownModalBG')
@@ -93,6 +131,7 @@ let saveColorFromEditColorModal = () => {
     $(item).css('background-color', window.colors[$('.editColorModal').attr('paletteid')].colors[index])
   })
   $('.color-set-column[paletteid="' + $('.editColorModal').attr('paletteid') + '"] .name').html($('.editColorModal .name').val())
+  $('.color-set-column[paletteid="' + $('.editColorModal').attr('paletteid') + '"] .emoji').html(window.colors[$('.editColorModal').attr('paletteid')].emoji)
   setTimeout(() => $('.editColorModal').hide(), 500)
   exportTofile()
   alertify.success('🤟 Saved!');
@@ -265,7 +304,7 @@ let removeAllandReload = () => {
 }
 
 let addAddNewPalletOption = () => {
-  $('#loadColorsHere').prepend('<div class="col-xs-12" id="newColorSet" style="padding:0"><div class="col-xs-6 col-sm-4 col-md-4" style="height:30vw;padding:5px"><div class="addNewPalette">+</div></div><div class="col-xs-6 col-sm-4 col-md-4 edit-buttons" style="height:30vw;padding:5px"><button class="col-xs-6 export">Export</button><button class="col-xs-6 import">Import</button><button class="col-xs-6 loadDefault">Load Default</button><button class="col-xs-6 donate">Donate</button></div></div>')
+  $('#loadColorsHere').prepend('<div class="col-xs-12" id="newColorSet" style="padding:0"><div class="col-xs-6 col-sm-4 col-md-4" style="height:30vw;padding:5px"><div class="addNewPalette">+</div></div><div class="col-xs-6 col-sm-4 col-md-4 edit-buttons" style="height:30vw;padding:5px"><button class="col-xs-6 export"><i class="fas fa-file-export"></i> Export</button><button class="col-xs-6 import"><i class="fas fa-file-import"></i> Import</button><button class="col-xs-6 reset"><i class="fas fa-redo"></i> &nbsp;&nbsp;Reset&nbsp;&nbsp;</button><button class="col-xs-6 donate"><i class="fas fa-donate"></i> Donate</button></div></div>')
 }
 
 let bindEditEvents = () => {
@@ -277,17 +316,15 @@ let bindEditEvents = () => {
     ele.addEventListener('click', openEditDialougBox)
   })
   $('.edit-buttons .export').on('click', () => {
-    $('.importExport').removeClass('import').addClass('export')
-    makeExportBoxVisible()
+    makeExportBoxVisible('export')
     loadExportData()
   })
   $('.edit-buttons .import').on('click', () => {
-    $('.importExport').removeClass('export').addClass('import')
-    makeExportBoxVisible()
+    makeExportBoxVisible('import')
     $('.importExport textarea').val('')
   })
-  $('.edit-buttons .loadDefault').on('click', () => {
-    alertify.confirm('😲 Confirm Load Default', 'This process is Irreversible which means you will not be able to get this Palette Back in Future, Are You Suer Want to Continue.', function () {
+  $('.edit-buttons .reset').on('click', () => {
+    alertify.confirm('😲 Confirm Load Reset?', 'This process is Irreversible which means you will not be able to get this Palette Back in Future, Are You Suer Want to Continue.', function () {
       fetch('colors_data.json').then(res => res.json()).then(data => {
         chrome.storage.local.set({
           colors: data
@@ -295,7 +332,7 @@ let bindEditEvents = () => {
         setEditModeOff()
         removeAllandReload()
       })
-      alertify.success('🤟 Loaded Default!');
+      alertify.success('🤟 Reset Done.');
     }, function () {});
 
   })
@@ -321,7 +358,6 @@ let bindEditEvents = () => {
     } catch {
       alertify.error('😒 Importing Error, Try Again!');
     }
-
   })
 
 }
@@ -334,7 +370,14 @@ let loadExportData = () => {
   })
 }
 
-let makeExportBoxVisible = () => {
+let makeExportBoxVisible = str => {
+  if (str == 'export') {
+    $('.importExport').removeClass('import').removeClass('loadPalette').addClass('export')
+  } else if (str == 'import') {
+    $('.importExport').removeClass('export').removeClass('loadPalette').addClass('import')
+  } else if (str == 'loadPalette') {
+    $('.importExport').removeClass('export').addClass('import').addClass('loadPalette')
+  }
   $('.importExport').removeClass('blowDownModalBG').addClass('blowUpModalBG')
   $('.importExport .topBox').removeClass('blowDownModal').addClass('blowUpModal')
   $('.importExport').show()

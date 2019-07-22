@@ -1,4 +1,12 @@
 window.addEventListener('load', () => {
+  $('.row .reset').on('click', () => {
+    fetch('colors_data.json').then(res => res.json()).then(data => {
+      chrome.storage.local.set({
+        colors: data
+      });
+      removeAllandReload()
+    })
+  })
   makeWindowLarge()
   chrome.storage.local.get('colors', function (result) {
     if (result == undefined || result.colors == undefined) {

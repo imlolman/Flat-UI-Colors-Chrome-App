@@ -63,8 +63,13 @@ body {
   float: right;
 }
 
-.row > .loading {
+.row .loading {
+  color: #fff;
   text-align: center;
+}
+
+.row .loading .reset {
+  color: #000;
 }
 
 .full-screen-selector {
@@ -309,7 +314,8 @@ body {
 }
 
 .editColorCode .values {
-  padding-bottom: 2px;
+  padding-bottom: 3px;
+  padding-top: 2px;
 }
 
 .editColorCode .values label {
@@ -362,7 +368,7 @@ body {
   border-radius: 2px;
   border: 0px;
   float: right;
-  margin: 0px 10px;
+  margin: 5px 10px;
   color: #f5f6fa;
   outline: 0;
   background: #00a8ff;
@@ -382,6 +388,18 @@ body {
 
 .button-set button.cancel:hover {
   background: #718093;
+}
+
+.button-set button.export {
+  background: #8c7ae6;
+}
+
+.button-set button.import {
+  background: #8c7ae6;
+}
+
+.button-set button.loadPalette {
+  background: #8c7ae6;
 }
 
 .button-set button.delete {
@@ -432,7 +450,7 @@ body {
   border-radius: 4px;
 }
 
-.edit-buttons button.loadDefault {
+.edit-buttons button.reset {
   background: #e84118;
 }
 
@@ -465,7 +483,23 @@ body {
   display: none;
 }
 
+.importExport.export .loadPalette {
+  display: none;
+}
+
 .importExport.import .export {
+  display: none;
+}
+
+.importExport.import .loadPalette {
+  display: none;
+}
+
+.importExport.loadPalette .loadPalette {
+  display: inline-block;
+}
+
+.importExport.loadPalette button.import {
   display: none;
 }
 
@@ -474,17 +508,6 @@ body {
   border-radius: 4px;
   outline: 0;
   width: 100%;
-}
-
-.alertify-notifier.ajs-right .ajs-message.ajs-visible {
-  font-size: large;
-  border: 2px solid #fff;
-  padding: 10px;
-  color: #fff;
-  right: 160px;
-  border-radius: 4px;
-  width: 150px;
-  top: 20px;
 }
 
 @-webkit-keyframes showBox {
