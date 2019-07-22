@@ -21,6 +21,8 @@ window.addEventListener('load', () => {
     'speed': 0,
   })
 
+  alertify.set('notifier', 'position', 'top-right');
+
   $('#pin').on('click', () => {
     $('.tipr_container_above').remove()
     if ($('#pin').hasClass('active')) {
@@ -54,6 +56,8 @@ window.addEventListener('load', () => {
     $('#home').fadeIn(100);
     $('#set').fadeOut(100)
     makeWindowLarge()
+    setEditModeOff()
+    removeAllandReload()
   })
 
   $('#edit').on('click', () => {

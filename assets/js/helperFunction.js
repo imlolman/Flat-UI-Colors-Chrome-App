@@ -70,12 +70,15 @@ let setColorBoxListeners = () => {
 }
 
 let deletePaletteFromEditColorModal = () => {
-  window.colors[$('.editColorModal').attr('paletteid')] = null
-  $('.color-set-column[paletteid="' + $('.editColorModal').attr('paletteid') + '"]').remove()
-  $('.editColorModal').removeClass('blowUpModalBG').addClass('blowDownModalBG')
-  $('.editColorModal .color-set').removeClass('blowUpModal').addClass('blowDownModal')
-  setTimeout(() => $('.editColorModal').hide(), 500)
-  exportTofile()
+  alertify.confirm('😲 Confirm Delete', 'This process is Irreversible which means you will not be able to get this Palette Back in Future, Are You Suer Want to Continue.', function () {
+    window.colors[$('.editColorModal').attr('paletteid')] = null
+    $('.color-set-column[paletteid="' + $('.editColorModal').attr('paletteid') + '"]').remove()
+    $('.editColorModal').removeClass('blowUpModalBG').addClass('blowDownModalBG')
+    $('.editColorModal .color-set').removeClass('blowUpModal').addClass('blowDownModal')
+    setTimeout(() => $('.editColorModal').hide(), 500)
+    exportTofile()
+    alertify.success('🤟 Deleted!');
+  }, function () {});
 }
 
 
@@ -92,6 +95,7 @@ let saveColorFromEditColorModal = () => {
   $('.color-set-column[paletteid="' + $('.editColorModal').attr('paletteid') + '"] .name').html($('.editColorModal .name').val())
   setTimeout(() => $('.editColorModal').hide(), 500)
   exportTofile()
+  alertify.success('🤟 Saved!');
 }
 
 let saveColorFromEditColorCode = () => {
@@ -283,13 +287,17 @@ let bindEditEvents = () => {
     $('.importExport textarea').val('')
   })
   $('.edit-buttons .loadDefault').on('click', () => {
-    fetch('colors_data.json').then(res => res.json()).then(data => {
-      chrome.storage.local.set({
-        colors: data
-      });
-      setEditModeOff()
-      removeAllandReload()
-    })
+    alertify.confirm('😲 Confirm Load Default', 'This process is Irreversible which means you will not be able to get this Palette Back in Future, Are You Suer Want to Continue.', function () {
+      fetch('colors_data.json').then(res => res.json()).then(data => {
+        chrome.storage.local.set({
+          colors: data
+        });
+        setEditModeOff()
+        removeAllandReload()
+      })
+      alertify.success('🤟 Loaded Default!');
+    }, function () {});
+
   })
   $('.edit-buttons .donate').on('click', () => {
     window.open('https://imlolman.github.io/donate')
@@ -298,6 +306,7 @@ let bindEditEvents = () => {
   $('.importExport .copy').on('click', () => {
     copyToClipboard($('.importExport textarea').val())
     makeExportBoxInvisible()
+    alertify.success('🤟 Copied!');
   })
   $('.importExport .load').on('click', () => {
     try {
@@ -308,8 +317,9 @@ let bindEditEvents = () => {
       makeExportBoxInvisible()
       setEditModeOff()
       removeAllandReload()
+      alertify.success('🤟 Imported!');
     } catch {
-      console.log('Error Importing, Try Again')
+      alertify.error('😒 Importing Error, Try Again!');
     }
 
   })
@@ -337,6 +347,7 @@ let makeExportBoxInvisible = () => {
 }
 
 let createNewPalette = () => {
+  alertify.success('🤟 Created!');
   colorSet = {
     name: 'Custom Plate',
     emoji: "\ud83c\udfa8",

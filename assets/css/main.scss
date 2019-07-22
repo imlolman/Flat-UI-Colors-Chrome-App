@@ -441,6 +441,17 @@ body {
   }
 }
 
+.alertify-notifier.ajs-right .ajs-message.ajs-visible {
+  font-size: large;
+  border: 2px solid #fff;
+  padding: 10px;
+  color: #fff;
+  right: 160px;
+  border-radius: 4px;
+  width: 150px;
+  top: 20px;
+}
+
 
 // * Key Frames
 
