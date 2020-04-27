@@ -12,7 +12,17 @@
   <link rel="stylesheet" href="assets/css/fa.css">
   <link rel="stylesheet" href="assets/css/alertify.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142979168-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
 </head>
 
 <body>
